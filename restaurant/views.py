@@ -13,10 +13,12 @@ def index(request):
     return render(request, 'index.html', {})
 
 class UserViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = User.objects.all()  # Queryset para todas las instancias del modelo User
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
+   
 class MenuItemsView(generics.ListCreateAPIView):
+    # permission_classes = [IsAuthenticated]
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
 
@@ -27,4 +29,4 @@ class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView
 class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()  # Queryset para todas las instancias del modelo User
     serializer_class = BookingSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
