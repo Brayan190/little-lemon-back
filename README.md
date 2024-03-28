@@ -1,3 +1,3 @@
 # little-lemon-back
-api/menu
-api/booking/tables
+api/menu/
+api/booking/
